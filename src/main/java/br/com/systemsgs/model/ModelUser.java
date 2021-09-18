@@ -6,15 +6,21 @@ public class ModelUser implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
-	private Long id;
+	private int id;
 	private String name;
 	private String[] address;
+	
+	public ModelUser(int id, String name, String[] addres) {
+		this.id = id;
+		this.name = name;
+		this.address = addres;
+	}
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -38,7 +44,7 @@ public class ModelUser implements Serializable{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + id;
 		return result;
 	}
 
@@ -51,12 +57,9 @@ public class ModelUser implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		ModelUser other = (ModelUser) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
+		if (id != other.id)
 			return false;
 		return true;
 	}
-	
+
 }
